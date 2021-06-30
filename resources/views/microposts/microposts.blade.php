@@ -12,10 +12,12 @@
                     </div>
                     <div>
                         {{-- 投稿内容 --}}
-                        <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p>
+                        <p class="mb-0">{!! nl2br(e($micropost->content)) !!}
+                        @include('favorites.favorite_button')
+                        </p>
                     </div>
                     <div>
-                        @include('favorites.favorite_button')
+                        
                             
                         @if (Auth::id() == $micropost->user_id)
                             {{-- 投稿削除ボタンのフォーム --}}
@@ -23,6 +25,7 @@
                                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                             {!! Form::close() !!}
                         @endif
+                        <!--@include('favorites.favorite_button')-->
                     </div>
                 </div>
             </li>
